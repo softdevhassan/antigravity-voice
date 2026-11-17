@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src {{cspSource}} 'unsafe-inline'; script-src {{cspSource}} 'unsafe-inline'; img-src {{cspSource}} data:; media-src blob: mediastream:; connect-src mediastream: blob:;">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antigravity Voice Note</title>
+  <link rel="stylesheet" href="{{cssUri}}">
+</head>
+<body>
+  <div class="hud-container">
+    <!-- Header -->
+    <header class="hud-header">
+      <div class="hud-title-wrap">
+        <img src="{{iconUri}}" class="hud-icon" alt="Mic Icon" />
+        <h1 class="hud-title">Antigravity Voice Note</h1>
+        <span class="hud-badge-lang">Urdu / English / Auto</span>
+      </div>
+      <div id="statusBadge" class="hud-status-badge">
+        <span class="status-dot"></span>
+        <span id="statusText">Recording</span>
+      </div>
+    </header>
+
+    <!-- Error Alert Box -->
+    <div id="alertBox" class="hud-alert"></div>
+
+    <!-- Live Audio Oscilloscope Visualizer -->
+    <div class="visualizer-wrapper">
+      <canvas id="waveformCanvas" width="480" height="90"></canvas>
+      <div class="metrics-row">
+        <div class="timer-box">
+          <span class="timer-label">Elapsed:</span>
+          <span id="timerDisplay">00:00</span>
+        </div>
+        <div class="meter-box">
+          <span class="meter-label">Input</span>
+          <div class="meter-track">
+            <div id="meterFill" class="meter-fill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Actions -->
+    <div class="hud-actions">
+      <button id="btnDone" class="btn-primary" title="Finish and paste into Antigravity Chat">
+        <span>⏹ Done & Paste</span>
+        <kbd class="btn-kbd">↵ Enter</kbd>
+      </button>
+
+      <button id="btnPause" class="btn-secondary" title="Pause or resume recording">
+        <span id="pauseBtnLabel">⏸ Pause</span>
+        <kbd class="btn-kbd">Space</kbd>
+      </button>
+
+      <button id="btnCancel" class="btn-danger" title="Discard recording">
+        <span>❌ Cancel</span>
+        <kbd class="btn-kbd">Esc</kbd>
+      </button>
+    </div>
+
+    <!-- Footer Shortcuts & Meta -->
+    <footer class="hud-footer">
+      <div class="hud-hint">
+        <span>Press <strong>Enter</strong> to send • <strong>Esc</strong> to cancel</span>
+      </div>
+      <div class="hud-device">
+        <span id="deviceInfo">Microphone active</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="{{jsUri}}"></script>
+</body>
+</html>

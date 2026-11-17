@@ -1,0 +1,6 @@
+src/**
+test/**
+install.ps1
+.gitignore
+tsconfig.json
+pnpm-lock.yaml

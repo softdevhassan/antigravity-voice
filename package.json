@@ -1,0 +1,131 @@
+{
+  "name": "antigravity-voice",
+  "displayName": "Antigravity Voice",
+  "publisher": "softdevhassan",
+  "version": "1.0.0",
+  "description": "Native voice prompts and speech recording with automatic attachment in Antigravity AI Chat.",
+  "author": {
+    "name": "Hassan Ali",
+    "url": "https://softdevhassan.com"
+  },
+  "homepage": "https://softdevhassan.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/softdevhassan/antigravity-voice"
+  },
+  "bugs": {
+    "url": "https://github.com/softdevhassan/antigravity-voice/issues"
+  },
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "keywords": [
+    "antigravity",
+    "voice",
+    "audio",
+    "speech",
+    "ai",
+    "gemini",
+    "microphone",
+    "voice-notes"
+  ],
+  "categories": [
+    "AI",
+    "Other"
+  ],
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "antigravity-voice.record",
+        "title": "Antigravity Voice: Record Voice Note",
+        "icon": "$(mic)"
+      },
+      {
+        "command": "antigravity-voice.stop",
+        "title": "Antigravity Voice: Stop Recording",
+        "icon": "$(primitive-square)"
+      },
+      {
+        "command": "antigravity-voice.cancel",
+        "title": "Antigravity Voice: Cancel Recording",
+        "icon": "$(close)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "antigravity-voice.record",
+        "key": "ctrl+alt+v",
+        "mac": "cmd+alt+v"
+      },
+      {
+        "command": "antigravity-voice.cancel",
+        "key": "escape",
+        "when": "antigravityVoiceRecording"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "antigravity-voice.record",
+          "group": "navigation@0",
+          "when": "view == antigravity.panel"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Antigravity Voice",
+      "properties": {
+        "antigravityVoice.audioFormat": {
+          "type": "string",
+          "enum": [
+            "ogg",
+            "wav"
+          ],
+          "default": "ogg",
+          "description": "Audio container format for saved voice notes (ogg or wav)."
+        },
+        "antigravityVoice.autoPaste": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically attach recorded voice note into active chat input."
+        },
+        "antigravityVoice.autoSend": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically submit/send the prompt after pasting."
+        },
+        "antigravityVoice.soundEffects": {
+          "type": "boolean",
+          "default": true,
+          "description": "Auditory signals on recording start and completion."
+        },
+        "antigravityVoice.language": {
+          "type": "string",
+          "default": "en-US",
+          "description": "Spoken language identifier."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.3.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": []
+  }
+}

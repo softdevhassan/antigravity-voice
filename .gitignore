@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Compiled TypeScript output
+out/
+
+# Extension packages (publish via GitHub Releases or Open VSX)
+*.vsix
+
+# Audio recordings & media artifacts
+*.wav
+*.ogg
+*.mp3
+recordings/
+
+# Logs and runtime diagnostics
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment and sensitive files
+.env
+.env.*
+!.env.example
+
+# Operating system files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE and editor settings
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files and caches
+tmp/
+temp/
+*.tmp
+*.bak
